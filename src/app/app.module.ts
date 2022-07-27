@@ -10,6 +10,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookStoreService } from './shared/book-store.service';
 
 import { AppRoutingModule } from './app.routing.module';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './app.routing.module';
     HomeComponent,
     BookListComponent,
     BookListItemComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule

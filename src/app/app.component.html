@@ -1,5 +1,6 @@
 <div class="ui menu">
     <a routerLink="home"  routerLinkActive="active" class="item">Home</a>
     <a routerLink="books" routerLinkActive="active" class="item">Bücher</a>
+    <bm-search (bookSelected)="bookSelected($event)" class="column"></bm-search>
 </div>
 <router-outlet></router-outlet>

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { retry, map, catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
 
 import { Book } from './book'
 import { BookRaw } from './book-raw';
@@ -59,5 +58,17 @@ export class BookStoreService {
 
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(() => new Error(error))
+  }
+
+  getAllSearch(searchTerm: string): Observable<Array<Book>> {
+    return this.http
+      .get<BookRaw[]>(`${this.api}/books/search/${searchTerm}`)
+      .pipe(
+        retry(3),
+        map(rawBooks => rawBooks
+          .map(rawBook => BookFactory.fromObject(rawBook)),
+        ),
+        catchError(this.errorHandler)
+      );
   }
 }
