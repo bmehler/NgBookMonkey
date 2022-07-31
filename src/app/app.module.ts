@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -11,6 +12,10 @@ import { BookStoreService } from './shared/book-store.service';
 
 import { AppRoutingModule } from './app.routing.module';
 import { SearchComponent } from './search/search.component';
+import { BookFormComponent } from './book-form/book-form.component';
+import { FormMessagesComponent } from './form-messages/form-messages.component';
+import { CreateBookComponent } from './create-book/create-book.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 
 
 @NgModule({
@@ -20,10 +25,14 @@ import { SearchComponent } from './search/search.component';
     BookListComponent,
     BookListItemComponent,
     BookDetailsComponent,
-    SearchComponent
+    SearchComponent,
+    BookFormComponent,
+    FormMessagesComponent,
+    CreateBookComponent,
+    EditBookComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule, HttpClientModule
+    BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule
   ],
   providers: [
     BookStoreService
